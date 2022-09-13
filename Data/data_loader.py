@@ -11,11 +11,11 @@ mask = np.load(config.mask_path)
 mask = mask + 1j*mask
 
 def read_npy_file(np_data_path, item):
-    cropped_kspace = np.load(np_data_path.numpy().decode()+item.numpy().decode())
-    im = 4096*cropped_kspace
-    masked_kspace = np.fft.fftshift(np.fft.fft2(im))
-    masked_kspace = ( 0.0075/(2*4096) )*masked_kspace
-    masked_kspace = np.squeeze(masked_kspace*mask)
+    cropped_im = np.load(np_data_path.numpy().decode()+item.numpy().decode())
+    im = 4096*cropped_im
+    kspace = np.fft.fftshift(np.fft.fft2(im))
+    kspace = ( 0.0075/(2*4096) )*kspace
+    masked_kspace = np.squeeze(kspace*mask)
     
     mag = np.abs(masked_kspace)
     phase = np.angle(masked_kspace)
@@ -27,7 +27,7 @@ def read_npy_file(np_data_path, item):
     x_imag = np.imag(masked_kspace)
     x = np.stack([x_real,x_imag], axis=-1)
     
-    gr = np.abs(cropped_kspace)
+    gr = np.abs(cropped_im)
     gr = (gr-np.min(gr))/(np.max(gr)-np.min(gr))
     
     return x, np.expand_dims(gr, axis=-1)
