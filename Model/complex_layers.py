@@ -258,6 +258,5 @@ class abs_layer(tf.keras.layers.Layer):
 
     def compute_output_shape(self, input_shape):
       shape = tf.TensorShape(input_shape).as_list()
-      out_shape = [0, 0, 0, 0]
-      out_shape[-1] = self.in_c//2
-      return tf.TensorShape(out_shape)
+      shape[-1] = self.in_c//2
+      return tf.TensorShape(shape)
