@@ -1,7 +1,7 @@
 #COMPLEX AUTOMAP MODEL
 
 from tensorflow.keras import layers, models
-from complex_layers import CFlatten, CDense, CReshape, CConv2D, CConv2DTranspose, abs
+from Model.complex_layers import CFlatten, CDense, CReshape, CConv2D, CConv2DTranspose, abs
 
 inputshape = (64,64,2)
 fc2_shape = inputshape[0]*inputshape[1]*inputshape[2]
