@@ -1,7 +1,7 @@
 #COMPLEX AUTOMAP MODEL
 
 from tensorflow.keras import layers, models
-from Model.complex_layers import CFlatten, CDense, CReshape, CConv2D, CConv2DTranspose, abs
+from Model.complex_layers import CFlatten, CDense, CReshape, CConv2D, CConv2DTranspose, abs_layer
 
 inputshape = (64,64,2)
 fc2_shape = inputshape[0]*inputshape[1]*inputshape[2]
@@ -17,6 +17,6 @@ model.add(layers.Activation('relu'))
 model.add(CConv2D(64, [5,5], padding='same'))
 model.add(layers.Activation('relu'))
 model.add(CConv2DTranspose(2, [7,7], padding='same'))
-model.add(abs())
+model.add(abs_layer())
 
 model.summary()
