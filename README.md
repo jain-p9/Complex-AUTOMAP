@@ -1,7 +1,7 @@
 # Complex-AUTOMAP
 Code for the paper "Novel Complex AUTOMAP for Accelerated MRI"
 
-config.py contains the following paths -
+config.py contains the following paths - <br />
 train_path : path to image domain MRI training numpy files <br />
 test_path : path to image domain MRI validation numpy files <br />
 mask_path : path to cartesian mask file <br />
