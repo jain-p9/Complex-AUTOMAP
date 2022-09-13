@@ -1,7 +1,7 @@
 import tensorflow as tf
 from tensorflow.keras.optimizers import RMSprop
 
-from Model import automap, complex_automap
+from Model import complex_automap
 import Data.data_loader as dl
 import config 
 
